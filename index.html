@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pavel × Pillar</title>
+<meta name="description" content="Pavel Kokora for the Entrepreneur in Residence, Head of Originals role at Pillar">
+<meta property="og:title" content="Pavel × Pillar">
+<meta property="og:description" content="Pavel Kokora for the Entrepreneur in Residence, Head of Originals role at Pillar">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet">
+<style>
+  /* Brand tokens: filled per company from content.json "brand" (see playbook §2b). */
+  :root {
+    --font-head: 'Space Grotesk', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+    --font-note: 'Space Grotesk', sans-serif;
+    --font-mono: 'Space Grotesk', sans-serif;
+    --page-bg: #ffffff;
+    --hero-bg: #ffffff;
+    --hero-ink: #1f2227;
+    --hero-muted: #52525b;
+    --ink: #1f2227;
+    --muted: #52525b;
+    --line: #e4e4e7;
+    --accent: #1f2227;
+    --accent-ink: #ffffff;
+    --accent-2: #6366f1;
+    --btn-radius: 8px;
+    --btn-border: 2px solid #1f2227;
+    --ghost-bg: #ffffff;
+    --ghost-ink: #1f2227;
+    --ghost-border: 1px solid #e4e4e7;
+    --hero-ghost-bg: #ffffff;
+    --hero-ghost-ink: #1f2227;
+    --hero-ghost-border: 1px solid #e4e4e7;
+    --pill-bg: #ffffff;
+    --pill-ink: #1f2227;
+    --pill-border: #e4e4e7;
+    --card-bg: #ffffff;
+    --card-border: 1px solid rgba(15,23,42,.08);
+    --card-radius: 20px;
+    --card-pad: 28px;
+    --card-shadow: 0 24px 80px rgba(15,23,42,.08);
+    --head-case: uppercase;
+    --head-weight: 700;
+    --head-tracking: 0;
+    --kicker-case: uppercase;
+    --kicker-tracking: .14em;
+    --dark-bg: #1f2227;
+    --dark-ink: #ffffff;
+    --dark-accent: #a5b4fc;
+    --dark-btn-bg: #ffffff;
+    --dark-btn-ink: #1f2227;
+    --note-bg: #ffffff;
+    --note-ink: #1f2227;
+    --note-radius: 20px;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:var(--font-body); color:var(--ink); line-height:1.55; background:var(--page-bg); }
+  a { color:inherit; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 24px; }
+  h1, h2, h3, .wordmark, .stat b { font-family:var(--font-head); }
+  h1 { font-weight:var(--head-weight); font-size:clamp(40px,6.6vw,80px); line-height:1.0; letter-spacing:var(--head-tracking);
+       text-transform:var(--head-case); margin:18px 0 16px; }
+  h2 { font-weight:var(--head-weight); font-size:clamp(28px,4.2vw,48px); line-height:1.06; letter-spacing:var(--head-tracking);
+       text-transform:var(--head-case); margin:0 0 16px; }
+  h3 { margin:0 0 6px; font-size:21px; font-weight:var(--head-weight); letter-spacing:calc(var(--head-tracking) / 2); }
+  h3 a { text-decoration:none; }
+
+  /* bands */
+  .band { padding:72px 0; }
+  .band + .band { border-top:1px solid var(--line); }
+  .band.dark, .band.dark + .band, .band.hero + .band { border-top:0; }
+  .hero { background:var(--hero-bg); color:var(--hero-ink); padding:0 0 72px; }
+  .dark { background:var(--dark-bg); color:var(--dark-ink); }
+
+  header.nav { display:flex; justify-content:space-between; align-items:center; padding:24px 0 8px; }
+  .lockup { display:flex; align-items:center; gap:10px; font-family:var(--font-head); font-weight:var(--head-weight); font-size:18px; }
+  .lockup .x { opacity:.55; font-weight:400; }
+  .wordmark { font-weight:700; }
+  .logo { height:24px; display:block; }
+  .nav nav a { font-size:14px; font-weight:600; text-decoration:none; margin-left:24px; opacity:.85; }
+
+  .pill { display:inline-block; font-size:12px; font-weight:600; letter-spacing:.03em; padding:7px 12px; border-radius:var(--btn-radius);
+          background:var(--pill-bg); color:var(--pill-ink); border:1px solid var(--pill-border); margin:0 8px 8px 0; }
+  .hero-sub { color:var(--hero-muted); font-size:19px; margin:0 0 14px; }
+  .hero .lead { color:var(--hero-ink); }
+  .lead { font-size:18px; max-width:660px; }
+  .kicker { font-size:13px; font-weight:700; letter-spacing:var(--kicker-tracking); text-transform:var(--kicker-case); color:var(--accent-2); margin:0 0 12px; }
+  .dark .kicker { color:var(--dark-accent); }
+  .meta { font-size:13px; font-weight:600; color:var(--muted); }
+  .small { font-size:14px; color:var(--muted); }
+  .actions { display:flex; gap:14px; align-items:center; margin:26px 0 36px; flex-wrap:wrap; }
+  .link { font-weight:700; text-decoration:underline; text-underline-offset:4px; }
+  .btn { display:inline-block; font-size:15px; font-weight:600; text-decoration:none; padding:13px 22px; border-radius:var(--btn-radius);
+         background:var(--accent); color:var(--accent-ink); border:var(--btn-border); transition:filter .15s; }
+  .btn:hover { filter:brightness(.92); }
+  .btn.ghost { background:var(--ghost-bg); color:var(--ghost-ink); border:var(--ghost-border); }
+  .dark .btn:not(.ghost) { background:var(--dark-btn-bg); color:var(--dark-btn-ink); }
+  .hero .btn.ghost { background:var(--hero-ghost-bg); color:var(--hero-ghost-ink); border:var(--hero-ghost-border); }
+  .dark .btn.ghost { background:transparent; color:var(--dark-ink); border:1px solid color-mix(in srgb, var(--dark-ink) 35%, transparent); }
+
+  .hero-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:44px; align-items:center; }
+  .hero-grid h1 { font-size:clamp(38px,5vw,66px); }
+  .video-slot { aspect-ratio:16/10; border-radius:calc(var(--card-radius) * .6); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+                background:radial-gradient(circle at 50% 40%, #2a2a33 0%, #0c0c10 75%); color:#cfcfd6; font-size:14px; text-align:center; padding:16px; }
+  .video-slot .play { width:64px; height:64px; border-radius:50%; display:grid; place-items:center; font-size:22px; padding-left:4px;
+                      background:var(--dark-btn-bg); color:var(--dark-btn-ink); box-shadow:0 0 0 10px color-mix(in srgb, var(--dark-btn-bg) 25%, transparent); }
+  .video-wrap { position:relative; }
+  .assistant { background:var(--note-bg); color:var(--note-ink); border-radius:var(--note-radius); padding:12px 16px; box-shadow:0 12px 30px #0000001f;
+               font-size:15px; max-width:400px; margin:0 0 -16px -28px; position:relative; z-index:2; font-family:var(--font-note); }
+  .assistant-top { display:flex; justify-content:space-between; font-weight:700; font-size:12px; margin-bottom:6px; font-family:var(--font-body); opacity:.7; }
+  .video-card { background:var(--dark-bg); color:#fff; border-radius:var(--card-radius); padding:14px; box-shadow:0 24px 60px #00000038; }
+  .video-head { display:flex; align-items:center; gap:10px; margin-bottom:12px; font-size:14px; }
+  .video-head small { color:#aaa; }
+  /* optional RU / EN video switch */
+  .vlang-bar { margin-left:auto; display:flex; gap:4px; padding:3px; border-radius:999px; background:rgba(255,255,255,.12); flex-shrink:0; }
+  .vlang { font:inherit; font-size:12px; font-weight:700; letter-spacing:.04em; border:0; cursor:pointer; padding:5px 10px; border-radius:999px;
+           background:transparent; color:#fff; }
+  .vlang.on { background:var(--accent); color:var(--accent-ink); }
+  .video-card video { object-fit:contain; }
+  .avatar { width:34px; height:34px; flex-shrink:0; object-fit:cover; border-radius:50%; background:var(--dark-btn-bg); color:var(--dark-btn-ink); display:grid; place-items:center; font-weight:800; }
+  .video-card video { width:100%; border-radius:calc(var(--card-radius) * .6); display:block; background:#000; aspect-ratio:16/10; object-fit:cover; }
+  .video-foot { display:flex; justify-content:space-between; font-size:12px; color:#aaa; margin-top:10px; }
+  .tag { font-size:11px; font-weight:700; letter-spacing:.06em; padding:3px 8px; border-radius:6px; background:#ffffff1f; }
+
+  /* core block: their task -> what I did -> what it gives them */
+  .match-list { display:grid; gap:14px; margin-top:28px; }
+  .match-row { display:grid; grid-template-columns:1fr 1.25fr 1fr; background:var(--card-bg); border:var(--card-border);
+               border-radius:var(--card-radius); box-shadow:var(--card-shadow); overflow:hidden; }
+  .match-row > div { padding:var(--card-pad); }
+  .match-row > div + div { border-left:1px solid var(--line); }
+  .match-row .lbl { display:block; font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+  .match-row .need { font-family:var(--font-head); font-weight:var(--head-weight); font-size:20px; line-height:1.2; letter-spacing:calc(var(--head-tracking) / 2); }
+  .match-row .did { font-size:16px; }
+  .match-row .did b { display:block; font-family:var(--font-head); font-size:26px; line-height:1.1; letter-spacing:var(--head-tracking); color:var(--accent-2); margin-bottom:4px; }
+  .match-row .get { font-weight:600; }
+
+  /* optional "two halves" block */
+  .half-grid { display:grid; grid-template-columns:repeat(var(--cols, 2), 1fr); gap:18px; margin-top:28px; }
+  .half { background:var(--card-bg); border:var(--card-border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:var(--card-pad); }
+  .half-tag { display:inline-block; font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+  .half h3 { font-size:26px; }
+  .half-link { color:inherit; text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:4px; }
+  .half-link:hover { opacity:.8; }
+  .half-logo { display:block; height:32px; width:auto; margin:0 0 14px; }
+  .half-role { margin:0 0 16px; font-weight:600; color:var(--muted); }
+  .half-num b { display:block; font-family:var(--font-head); font-weight:var(--head-weight); font-size:34px; line-height:1.05; letter-spacing:var(--head-tracking); color:var(--accent-2); }
+  .half-num span { font-size:14px; color:var(--muted); }
+  .half ul { margin:16px 0 0; padding-left:18px; }
+  .half li { margin:6px 0; }
+  .half-arrows { display:block; width:100%; height:110px; margin:6px 0 4px; overflow:visible; }
+  .half-arrows path, .half-arrows-mobile path { fill:none; stroke:var(--ink); stroke-width:2.5; stroke-linecap:round; stroke-dasharray:0.1 9; vector-effect:non-scaling-stroke; }
+  .half-arrows-mobile { display:none; width:20px; height:60px; margin:6px auto 4px; }
+  .half-join.target { width:min(100%, 720px); margin-left:auto; margin-right:auto; }
+  .half-join.target { margin-top:0; text-align:center; }
+  .half-join.target h3 { font-size:30px; margin:0 0 8px; }
+  .half-join.target p { margin:0 auto; max-width:640px; }
+  .half-join { margin-top:18px; padding:20px var(--card-pad); border:var(--card-border); border-radius:var(--card-radius); font-size:18px; }
+
+  /* optional "superpower" funnel: bars narrow from top to bottom, colour deepens */
+  .funnel { display:flex; flex-direction:column; align-items:center; gap:8px; margin-top:32px; }
+  .funnel-step { width:calc(100% - var(--i) * (36% / var(--n))); display:grid; grid-template-columns:minmax(150px, 34%) 1fr; gap:6px 18px; align-items:center;
+                 padding:16px 22px; border-radius:var(--card-radius); color:var(--ink);
+                 background:color-mix(in srgb, var(--accent-2) calc(14% + var(--i) * (86% / var(--n))), var(--page-bg)); }
+  .funnel-step.deep { color:#fff; }
+  .funnel-step.solo { grid-template-columns:1fr; text-align:center; }
+  .funnel-step b { font-family:var(--font-head); font-weight:var(--head-weight); font-size:19px; line-height:1.2; }
+  .funnel-step span { font-size:15px; line-height:1.4; }
+  .funnel-plus { margin:18px auto 0; width:fit-content; max-width:100%; display:flex; flex-wrap:wrap; gap:6px 14px; align-items:baseline;
+                 padding:14px 22px; border-radius:var(--card-radius); background:var(--card-bg); border:var(--card-border); box-shadow:var(--card-shadow); }
+  .funnel-plus b { font-family:var(--font-head); font-weight:var(--head-weight); font-size:19px; }
+  .funnel-plus span { font-size:15px; }
+  .funnel-note { margin:26px auto 0; max-width:720px; text-align:center; font-family:var(--font-head); font-weight:var(--head-weight); font-size:22px; line-height:1.3; }
+
+  /* optional "My path" timeline */
+  .path .wrap { max-width:860px; }
+  .path-list { margin-top:28px; border-bottom:1px solid var(--line); }
+  .path-row { display:grid; grid-template-columns:150px 1fr; gap:16px; padding:16px 0; border-top:1px solid var(--line); }
+  .path-years { font-weight:700; color:var(--muted); }
+  .path-row.hl { font-weight:700; color:var(--ink); }
+  .path-row.hl .path-years { color:var(--ink); }
+  .path-callout { margin-top:28px; padding:22px var(--card-pad); background:var(--note-bg); color:var(--note-ink); border:var(--card-border);
+                  border-radius:var(--card-radius); font-family:var(--font-head); font-weight:var(--head-weight); font-size:22px; line-height:1.3; }
+  .path-foot { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; margin-top:28px; }
+
+  .track { display:flex; flex-wrap:wrap; gap:14px 28px; align-items:baseline; }
+  .track .fact b { display:block; font-family:var(--font-head); font-weight:var(--head-weight); font-size:30px; letter-spacing:var(--head-tracking); }
+  .track .fact span { font-size:14px; color:var(--muted); }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; margin:22px 0 26px; }
+  .chip { font-size:14px; font-weight:600; padding:6px 12px; border-radius:var(--btn-radius); border:1px solid var(--line); }
+  .snap-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; }
+  figure { margin:0; background:var(--card-bg); border:var(--card-border); border-radius:var(--card-radius); overflow:hidden; }
+  figure img, figure video { width:100%; aspect-ratio:16/10; object-fit:cover; display:block; background:#ddd; }
+  figcaption { font-size:14px; padding:12px 16px; color:var(--muted); }
+
+  .drive .wrap { position:relative; }
+  .drive h2 { max-width:820px; }
+  .doodle { position:absolute; top:-28px; right:24px; font-family:'Caveat', 'Comic Sans MS', cursive; font-weight:700; font-size:52px;
+            line-height:1; color:var(--dark-accent); transform:rotate(-8deg); white-space:nowrap; }
+  .drive .lead { font-size:20px; max-width:720px; margin:0; opacity:.9; }
+  .cta h2 { max-width:820px; }
+  footer { font-size:13px; color:var(--muted); padding:24px 0 40px; }
+  footer p { margin:4px 0; }
+
+  @media (max-width:760px) {
+    .hero-grid { grid-template-columns:1fr; }
+    .nav nav { display:none; }
+    .assistant { margin-left:0; }
+    .match-row { grid-template-columns:1fr; }
+    .half-grid { grid-template-columns:1fr; }
+    .path-row { grid-template-columns:1fr; gap:2px; }
+    .funnel-step { width:calc(100% - var(--i) * (14% / var(--n))); grid-template-columns:1fr; padding:14px 18px; }
+    .half-arrows { display:none; }
+    .half-arrows-mobile { display:block; }
+    .match-row > div + div { border-left:0; border-top:1px solid var(--line); }
+    .band { padding:48px 0; }
+    .doodle { position:static; display:block; width:max-content; margin:0 0 14px auto; font-size:40px; }
+  }
+  /* optional "My last occupation" block: numbered stats with a top rule, first one highlighted */
+  .occ-role { font-size:clamp(22px,2.6vw,32px); margin:18px 0 6px; }
+  .occ-role a { color:inherit; text-decoration-thickness:2px; text-underline-offset:5px; }
+  .occ-sub { color:var(--muted); margin:0; }
+  .occ-facts { display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; margin-top:34px; }
+  .occ-fact { border-top:2px solid var(--line); padding-top:16px; }
+  .occ-fact:first-child { border-top-color:var(--accent-2); }
+  .occ-fact small { display:block; font-size:13px; font-weight:600; color:var(--muted); margin-bottom:8px; }
+  .occ-fact b { display:block; font-family:var(--font-head); font-weight:var(--head-weight); font-size:clamp(40px,5vw,64px); line-height:1; letter-spacing:var(--head-tracking); }
+  .occ-fact span { display:block; margin-top:8px; color:var(--muted); }
+  .occ-note { margin:34px 0 0; font-family:var(--font-head); font-weight:var(--head-weight); font-size:clamp(20px,2.2vw,26px); }
+  @media (max-width:760px) { .occ-facts { grid-template-columns:1fr; gap:22px; } }
+  /* optional checklist block: posting requirement + tick + one line of proof */
+  .check-list { display:grid; gap:12px; margin-top:28px; }
+  .check-row { display:grid; grid-template-columns:44px 1fr; gap:16px; align-items:start; padding:18px 22px;
+               background:var(--card-bg); border:var(--card-border); border-radius:var(--card-radius); }
+  .check-tick { width:36px; height:36px; border-radius:50%; display:grid; place-items:center; line-height:0;
+                background:var(--accent); color:var(--accent-ink); }
+  .check-row b { display:block; font-family:var(--font-head); font-weight:var(--head-weight); font-size:19px; line-height:1.3; }
+  .check-row > div > span { display:block; margin-top:4px; color:var(--muted); }
+  .check-tick svg { width:22px; height:22px; display:block; }
+  .half-sub { font-size:clamp(18px,2vw,22px); color:var(--muted); margin:12px 0 0; max-width:820px; }
+  /* optional sticker over the video preview */
+  .video-frame { position:relative; }
+  .video-badge { position:absolute; top:14px; left:14px; padding:7px 14px; border-radius:999px; font-weight:700; font-size:15px;
+                 background:var(--accent); color:var(--accent-ink); box-shadow:0 6px 20px rgba(0,0,0,.3); pointer-events:none; transform:rotate(-3deg); }
+  .logo { height:24px; }
+  .hero h1 strong { font-weight:inherit; color:#6366f1; }
+  .kicker { font-size:13px; color:#6366f1; font-weight:500; }
+  .dark .kicker { color:#a5b4fc; }
+  .btn { letter-spacing:.06em; }
+  .half-tag { color:#6366f1; font-weight:500; letter-spacing:.08em; text-transform:uppercase; font-size:12px; }
+  .half-num b { color:#1f2227; }
+  .half-join { background:#1f2227; color:#fff; border:0; }
+  .half-join h3 { color:#fff; }
+  .half-arrows path, .half-arrows-mobile path { stroke:#6366f1; }
+  .occupation { background:#fafafa; }
+  .occ-fact:first-child { border-top-color:#6366f1; }
+  .path-callout { background:#fafafa; border:1px solid #e4e4e7; border-radius:20px; }
+  .cta { background:radial-gradient(120% 120% at 50% 120%, #7c2d92 0%, #3b1d5e 35%, #1f2227 70%); }
+  .hero h1 { text-wrap:balance; }
+  .half h3 { font-size:30px; } .half ul:empty { display:none; }
+  .half .half-tag { display:inline-block; padding:6px 12px; border-radius:999px; background:rgba(99,102,241,.1); margin-bottom:16px; }
+  .half-num.multi { display:block; background:#fafafa; border:1px solid #e4e4e7; border-radius:14px; padding:12px 14px; margin-top:10px; }
+  .half-num.multi small { display:block; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#71717a; margin-bottom:4px; }
+  .half-num.multi small a { color:inherit; text-decoration:underline; text-underline-offset:3px; }
+  .num-role { display:block; font-style:normal; font-size:14px; font-weight:600; color:#1f2227; margin:2px 0 6px; letter-spacing:0; text-transform:none; }
+  .half-num.multi b { display:block; font-size:clamp(26px,2.6vw,34px); line-height:1.1; white-space:nowrap; color:#1f2227; }
+  .half-num.multi span { display:block; font-size:15px; color:#52525b; }
+  .half-num.multi span strong { color:#6366f1; font-weight:700; }
+  .half-num.multi.hl { border:2px solid #6366f1; background:linear-gradient(160deg, rgba(99,102,241,.10), rgba(99,102,241,.02)); padding:16px 18px; box-shadow:0 0 40px rgba(99,102,241,.12); }
+  .half-num.multi.hl b { font-size:clamp(32px,3.2vw,44px); color:#6366f1; }
+  .half-num-pts { margin:10px 0 0; padding-left:18px; font-size:15px; color:#1f2227; }
+  .half-num-pts li { margin:4px 0; }
+  .half-join .half-tag { color:#a5b4fc; }
+  .checks h2 strong { font-weight:inherit; color:#6366f1; }
+  .half-num.multi b strong { color:#a1a1aa; font-weight:500; }
+
+  @media (max-width:420px) { .half-num.multi:not(.hl) b { font-size:23px; } }
+
+  .video-card video { aspect-ratio:848/832; object-fit:cover; }
+
+  footer.wrap { display:none; }
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <header class="nav">
+      <div class="lockup"><span>Pavel</span><span class="x">×</span><img class="logo" src="https://www.pillar.it/logo.svg" alt="Pillar"></div>
+      <nav><a href="#match">Why we need to talk</a><a href="#contact">Contact</a></nav>
+    </header>
+    <div class="hero-grid">
+      <div>
+        <div style="margin-top:36px"><a class="pill" href="https://talent.pillar.it/open-roles/667125c8-695e-4757-abf8-c1ad69ceaf31" target="_blank" rel="noopener" style="text-decoration:none">Re: EIR, Head of Originals ↗</a><span class="pill">I&#x27;m in Barcelona</span></div>
+        <h1>Hi, I&#x27;m Pavel.<br>We need to talk.<br><strong>It&#x27;s a match!</strong></h1>
+        <p class="hero-sub">Start from zero and make it profitable at scale → that&#x27;s my thing.</p>
+        <div class="actions">
+          <a class="btn" href="#match">Why we need to talk? ↓</a>
+          <a class="btn ghost" href="https://snazzy-axolotl-240e64.netlify.app/Pavel_Kokora_CV.pdf" target="_blank" rel="noopener">My CV (PDF)</a>
+        </div>
+      </div>
+      
+      <div class="video-wrap">
+        <div class="video-card">
+          <div class="video-head"><span class="avatar">P</span><div><b>Pavel</b><br><small>Candidate · Entrepreneur in Residence, Head of Originals</small></div></div>
+          <video controls playsinline preload="metadata" src="video.mp4" poster="video-poster.jpg"></video>
+          <div class="video-foot"><span>Watch first</span><span class="vdur">0:45</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band halves" id="match">
+  <div class="wrap">
+    <p class="kicker">How what I&#x27;ve done helps Pillar Originals</p>
+    <h2>Break-even: twice.<br><strong>0 → 1: three times.</strong></h2>
+    <div class="half-grid">
+      <div class="half">
+        <span class="half-tag">Reaching break-even</span>
+        <h3>2 break-even points</h3>
+        <p class="half-role">EdTech and fintech: from loss to profit</p><div class="half-num multi hl"><small><a class="half-link" href="https://algonova.com" target="_blank" rel="noopener">Algonova ↗</a> · EdTech · 2025–2026</small><em class="num-role">Product Manager → LatAm Business Unit Leader</em><b>0.8x → 1.1x</b><span><strong>First-sale payback.</strong> Each $1 spent on sales and marketing came back as <strong>$1.10 from the first sale alone</strong>, after tutors, tools, bank fees and refunds. Before: $0.80.</span><ul class="half-num-pts"><li>I owned a ~$2M P&amp;L and a 200+ person team.</li><li>Revenue up 5x year over year: $40K a month (Jul 2025) → $200K (Jul 2026).</li></ul></div><div class="half-num multi"><small>Takomo (Eqvanta Group) · fintech · 2023–2024</small><em class="num-role">Head of Product, Vietnam</em><b><strong>loss</strong> → +$200K/month</b><span>EBITDA, <strong>in 11 months</strong></span></div>
+        <ul></ul>
+      </div>
+      <div class="half">
+        <span class="half-tag">Launching from zero</span>
+        <h3>3 launches</h3>
+        <p class="half-role">2 AI products + my own agency</p><div class="half-num multi hl"><small><a class="half-link" href="https://praktika.ai" target="_blank" rel="noopener">Praktika.ai ↗</a> · AI consumer app · 2021–2023</small><em class="num-role">First employee, Product Manager</em><b>$55M ARR</b><span>today. Launched in 4 months, first $20K MRR</span></div><div class="half-num multi"><small>Digital marketing agency · 2021</small><em class="num-role">Founder</em><b>$70K+</b><span>first year, <strong>50%+ margin</strong></span><ul class="half-num-pts"><li>Sold to clients and closed the deals myself.</li></ul></div><div class="half-num multi"><small>GaleAI · AI B2B SaaS · 2024–2025</small><em class="num-role">Co-founder &amp; CEO</em><b>$12K+</b><span>in the first 4 months, no paid ads</span></div>
+        <ul></ul>
+      </div>
+    </div>
+    <svg class="half-arrows" viewBox="0 0 1000 150" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M250,4 C250,90 500,60 500,140"/><path d="M750,4 C750,90 500,60 500,140"/>
+    </svg>
+    <svg class="half-arrows-mobile" viewBox="0 0 20 60" aria-hidden="true"><path d="M10,2 L10,56"/></svg>
+    <div class="half-join target"><span class="half-tag">Pillar Originals</span><h3>Launch a new unit. Make it profitable.</h3><p>Media is new to me. Launching from zero and taking a P&amp;L to profit isn&#x27;t.</p></div>
+  </div>
+</section>
+<section class="band checks">
+  <div class="wrap">
+    <p class="kicker">From your job post</p>
+    <h2>What you&#x27;re looking for.<br><strong>What I&#x27;ve done.</strong></h2>
+    <div class="check-list">
+      <div class="check-row"><span class="check-tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <div><b>A comparable venture, ideally with direct P&amp;L responsibility</b><span>Owned a ~$2M P&amp;L at Algonova LatAm. Founded a marketing agency and an AI startup.</span></div></div>
+      <div class="check-row"><span class="check-tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <div><b>Commercial skills to build a pipeline and close deals</b><span>At my agency and at GaleAI I sold myself: cold calls, demos, negotiating, closing.</span></div></div>
+      <div class="check-row"><span class="check-tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <div><b>Solid understanding of audience growth</b><span>Started in SMM. At Ennergiia: monthly active users 90K → 400K+ in 9 months.</span></div></div>
+      <div class="check-row"><span class="check-tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <div><b>Experience managing small teams and external partners</b><span>Agency: a core team of 7, in-house and outsourced. Algonova: heads of Sales, Marketing and Retention.</span></div></div>
+      <div class="check-row"><span class="check-tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <div><b>Comfort with ambiguity and a bias for action</b><span>GaleAI: MVP in 3 months, no investment. Praktika: in both app stores in 4 months.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band occupation">
+  <div class="wrap">
+    <p class="kicker occ-kicker">My last role</p>
+    <h2><span class="occ-lead">I&#x27;ve owned a P&amp;L.</span><br>Recently, and at scale.</h2>
+    <h3 class="occ-role">Head of LatAm Business Unit, Algonova (EdTech) · 2026</h3>
+    <div class="occ-facts"><div class="occ-fact"><small>01</small><b>~$2M</b><span>P&amp;L a year</span></div><div class="occ-fact"><small>02</small><b>200+</b><span>people in the unit</span></div><div class="occ-fact"><small>03</small><b>5</b><span>countries in LatAm</span></div></div><p class="occ-note">I know how to run a P&amp;L, not just a product.</p>
+  </div>
+</section>
+<section class="band path" id="path">
+  <div class="wrap">
+    <h2>My path</h2>
+    <div class="path-list"><div class="path-row hl"><span class="path-years">2017–2020</span><span>Digital marketing manager, SMM manager.</span></div><div class="path-row hl"><span class="path-years">2021</span><span>Founder of a digital marketing agency.</span></div><div class="path-row"><span class="path-years">2021–2023</span><span>Praktika.ai: first employee, product manager.</span></div><div class="path-row hl"><span class="path-years">2023–2024</span><span>Eqvanta Group: Head of Product in a Vietnam subsidiary company.</span></div><div class="path-row"><span class="path-years">2024–2025</span><span>GaleAI: Co-founder &amp; CEO. AI B2B SaaS.</span></div><div class="path-row"><span class="path-years">2025–2026</span><span>Algonova: product manager → LATAM business unit leader.</span></div></div><div class="path-callout">I&#x27;ve touched every part of a business: product, marketing, sales, pitching, ops, P&amp;L.</div>
+    <div class="path-foot"><span class="small">The full story, with numbers for every role.</span>
+      <a class="btn" href="https://snazzy-axolotl-240e64.netlify.app/Pavel_Kokora_CV.pdf" target="_blank" rel="noopener">↓ Download my CV (PDF)</a></div>
+  </div>
+</section>
+
+<section class="band dark cta" id="contact">
+  <div class="wrap">
+    <h2>So… shall we talk?</h2>
+    <div class="actions">
+      <a class="btn" href="mailto:pavel.kokora@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://t.me/pavelkokora" target="_blank" rel="noopener">Telegram</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/pavel-kokora/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://snazzy-axolotl-240e64.netlify.app/Pavel_Kokora_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+    </div>
+  </div>
+</section>
+<footer class="wrap">
+  <p>Pavel Kokora · Barcelona · pavel.kokora@gmail.com</p>
+  <p>A personal application page made by Pavel for the Entrepreneur in Residence, Head of Originals role. Styled after Pillar's public website; not made, affiliated with or endorsed by Pillar.</p>
+</footer>
+</body>
+</html>
