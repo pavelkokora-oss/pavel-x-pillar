@@ -284,6 +284,8 @@
 
   footer.wrap { display:none; }
 
+  .video-badge { background:#fff; color:#1f2227; box-shadow:0 4px 14px rgba(0,0,0,.25); }
+
 </style>
 </head>
 <body>
@@ -308,7 +310,10 @@
       <div class="video-wrap">
         <div class="video-card">
           <div class="video-head"><span class="avatar">P</span><div><b>Pavel</b><br><small>Candidate · Entrepreneur in Residence, Head of Originals</small></div></div>
-          <video controls playsinline preload="metadata" src="video.mp4" poster="video-poster.jpg"></video>
+          <div class="video-frame"><video controls playsinline preload="metadata" src="video.mp4" poster="video-poster.jpg"></video><span class="video-badge">video-pitch</span></div><script>document.querySelectorAll('.video-frame').forEach(function (f) {
+  var v = f.querySelector('video'), b = f.querySelector('.video-badge');
+  v.addEventListener('play', function () { b.style.display = 'none'; });
+});</script>
           <div class="video-foot"><span>Watch first</span><span class="vdur">0:45</span></div>
         </div>
       </div>
