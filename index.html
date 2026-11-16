@@ -288,6 +288,10 @@
 
   header.nav nav { display:none; }
 
+  .half-grid { grid-template-columns:repeat(2,1fr); }
+  .half-grid .half:nth-child(3) { grid-column:1 / -1; }
+  @media (max-width:760px) { .half-grid { grid-template-columns:1fr; } }
+
 </style>
 </head>
 <body>
@@ -326,8 +330,8 @@
 <section class="band halves" id="match">
   <div class="wrap">
     <p class="kicker">How what I&#x27;ve done helps Pillar Originals</p>
-    <h2>Break-even: twice.<br><strong>0 → 1: three times.</strong></h2>
-    <div class="half-grid">
+    <h2>Break-even: twice.<br><strong>0 → 1: three times.</strong><br>Construction: not new to me.</h2>
+    <div class="half-grid" style="--cols:3">
       <div class="half">
         <span class="half-tag">Reaching break-even</span>
         <h3>2 break-even points</h3>
@@ -340,12 +344,18 @@
         <p class="half-role">2 AI products + my own agency</p><div class="half-num multi hl"><small><a class="half-link" href="https://praktika.ai" target="_blank" rel="noopener">Praktika.ai ↗</a> · AI consumer app · 2021–2023</small><em class="num-role">First employee, Product Manager</em><b>$55M ARR</b><span>today. Launched in 4 months, first $20K MRR</span></div><div class="half-num multi"><small>Digital marketing agency · 2021</small><em class="num-role">Founder</em><b>$70K+</b><span>first year, <strong>50%+ margin</strong></span><ul class="half-num-pts"><li>Sold to clients and closed the deals myself.</li></ul></div><div class="half-num multi"><small>GaleAI · AI B2B SaaS · 2024–2025</small><em class="num-role">Co-founder &amp; CEO</em><b>$12K+</b><span>in the first 4 months, no paid ads</span></div>
         <ul></ul>
       </div>
+      <div class="half">
+        <span class="half-tag">Knowing construction</span>
+        <h3>Construction clients</h3>
+        <p class="half-role">at my agency and at GaleAI</p>
+        <ul><li>Ads and websites for construction companies.</li><li>Worked hands-on with their sales teams.</li></ul>
+      </div>
     </div>
     <svg class="half-arrows" viewBox="0 0 1000 150" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M250,4 C250,90 500,60 500,140"/><path d="M750,4 C750,90 500,60 500,140"/>
+      <path d="M167,4 C167,90 500,60 500,140"/><path d="M500,4 C500,90 500,60 500,140"/><path d="M833,4 C833,90 500,60 500,140"/>
     </svg>
     <svg class="half-arrows-mobile" viewBox="0 0 20 60" aria-hidden="true"><path d="M10,2 L10,56"/></svg>
-    <div class="half-join target"><span class="half-tag">Pillar Originals</span><h3>Launch a new unit. Make it profitable.</h3><p>Media is new to me. Launching from zero and taking a P&amp;L to profit isn&#x27;t.</p></div>
+    <div class="half-join target"><span class="half-tag">Pillar Originals</span><h3>Launch a new unit. Make it profitable.</h3><p>Break-even, zero to one and construction clients: the mix Originals needs.</p></div>
   </div>
 </section>
 <section class="band checks">
@@ -363,6 +373,8 @@
         <div><b>Experience managing small teams and external partners</b><span>Agency: a core team of 7, in-house and outsourced. Algonova: heads of Sales, Marketing and Retention.</span></div></div>
       <div class="check-row"><span class="check-tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
         <div><b>Comfort with ambiguity and a bias for action</b><span>GaleAI: MVP in 3 months, no investment. Praktika: in both app stores in 4 months.</span></div></div>
+      <div class="check-row"><span class="check-tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <div><b>Curiosity about construction and the people who work in it</b><span>Construction companies were clients of my agency and of GaleAI: ads, websites and work with their sales teams.</span></div></div>
     </div>
   </div>
 </section>
